@@ -11,6 +11,8 @@ Flood Network Ltd closed down in 2023. This site documents the Flood Network pro
 
 Some of the code and designs will remain available here.
 
+![View of a river in Calderdale](2017-04-11 11.08.08.jpg "Logo Title Text 1")
+
 TODO: Links to repository
 
 TODO: Links to Current live database
