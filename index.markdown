@@ -7,9 +7,9 @@ layout: default
 
 # Flood Network is no more
 
-Flood Network Ltd closed down in 2023. This site documents the Flood Network project and what we learned in the process.
+Flood Network Ltd closed down in 2023. This site documents the Flood Network project and what we learned in the process. Maybe you can use this to build your own.
 
-Some of the code and designs will remain available here.
+Some of the code and designs will remain available here. 
 
 ![View of a river in Calderdale](2017-04-11 11.08.08.jpg "Logo Title Text 1")
 
