@@ -17,7 +17,7 @@ TODO: Links to repository
 
 Here's some history:
 - [https://www.bbc.co.uk/news/uk-england-oxfordshire-35049806](https://www.bbc.co.uk/news/uk-england-oxfordshire-35049806)
-- [https://www.youtube.com/watch?v=8O_ZM9hLcqs](Flood monitoring with a LoRa-based IoT network)
-- [https://www.youtube.com/watch?v=ot2Sx9rRHdY](Oxford Flood Network @ Wuthering Bytes)
-- [https://www.youtube.com/watch?v=WZKPxxvLN64](Ben Ward - Flood monitoring using The Things Network)
-- [https://www.youtube.com/watch?v=TxMpNsS-oro](LoRaWAN Applications - The Calderdale Flood Sensor Network)
+- [Flood monitoring with a LoRa-based IoT network](https://www.youtube.com/watch?v=8O_ZM9hLcqs)
+- [Oxford Flood Network @ Wuthering Bytes](https://www.youtube.com/watch?v=ot2Sx9rRHdY)
+- [Ben Ward - Flood monitoring using The Things Network](https://www.youtube.com/watch?v=WZKPxxvLN64)
+- [LoRaWAN Applications - The Calderdale Flood Sensor Network](https://www.youtube.com/watch?v=TxMpNsS-oro)
