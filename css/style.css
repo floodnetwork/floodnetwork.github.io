@@ -1,0 +1,349 @@
+﻿@media (max-width: 999px) {
+  .navbar-header {
+      float: none;
+          margin-right: -15px !important;
+    margin-left: -15px !important;
+  }
+  .navbar-brand {
+    margin-left: 0px !important;
+  }
+  .navbar-left,.navbar-right {
+      float: none !important;
+  }
+  .navbar-toggle {
+      display: block;
+  }
+  .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+  }
+  .navbar-collapse.collapse {
+      display: none !important;
+  }
+  .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+  }
+  .navbar-nav>li {
+      float: none;
+  }
+  .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+  .collapse.in{
+      display:block !important;
+  }
+}
+:root {
+	--color-primary-0: #114F6C; /* Sort of Blue */;
+	--color-complement-1: #E6BB56; /* Sort of Light Gold */;
+	--success-colour: #519911 ; /* Sort of Green, was 519911 */
+	--danger-colour: #AB2513; /* Sort of Red, was AB2513*/
+}
+/* Palette URL: http://paletton.com/#uid=33s0u0ksmlrk0sPpxqmwChaHXbP */
+/*
+.color-primary-0 { color: #114F6C}	Main Primary color
+.color-primary-1 { color: #3B7591 }
+.color-primary-2 { color: #206485 }
+.color-primary-3 { color: #043C57 }
+.color-primary-4 { color: #02293C }
+
+.color-secondary-1-0 { color: #519911 }	 Main Secondary color (1) Green
+.color-secondary-1-1 { color: #89CD4D }
+.color-secondary-1-2 { color: #6DBC26 }
+.color-secondary-1-3 { color: #3A7A00 }
+.color-secondary-1-4 { color: #285400 }
+
+.color-secondary-2-0 { color: #AB2513 }	 Main Secondary color (2) Red
+.color-secondary-2-1 { color: #E66756 }
+.color-secondary-2-2 { color: #D23E2B }
+.color-secondary-2-3 { color: #891000 }
+.color-secondary-2-4 { color: #5E0B00 }
+
+.color-complement-0 { color: #AB7E13 }	 Main Complement color Yellow
+.color-complement-1 { color: #E6BB56 }
+.color-complement-2 { color: #D2A12B }
+.color-complement-3 { color: #896100 }
+.color-complement-4 { color: #5E4200 }
+*/
+body {
+	font-family: Arial, Helvetica, sans-serif;;
+	margin-top: 50px;
+	background-color: #CCCCCC;
+}
+/* set a max-width for horizontal fluid layout and make it centered 
+.container-fluid {
+	max-width: 1920px; 
+	margin-left: auto;
+    margin-right: auto;
+
+}
+*/
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0px;
+    /*margin-bottom: 0px;*/
+}
+ul {
+	margin-top: 0;
+	margin-bottom: 10px;
+	padding-left: 20px;
+}
+.fullscreen {
+	z-index: 9999;
+	width: 100%;
+	height: calc(100vh - 90px);
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+/* Colours */
+.bg-primary {
+	color: #fff;
+	background-color: var(--color-primary-0);
+}
+.text-primary {
+	color: var(--color-primary-0);
+}
+.text-success {
+	color: var(--success-colour);
+}
+.text-danger {
+    color: var(--danger-colour);
+}
+/* Navbar */
+.navbar-inverse {
+	z-index: 9999 !important;
+	background-color: var(--color-primary-0);
+	padding-bottom: 0px;
+	margin: 0px;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #eeeeee;
+}
+
+.navbar-header {
+	z-index: 9999 !important;
+}
+.glyphicon {
+    position: static;
+}
+.glyphicon.spinning {
+    animation: spin 2s infinite linear;
+    -webkit-animation: spin2 2s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+.anchor:before {
+display: block; 
+content: " "; 
+margin-top: -60px; 
+height: 60px; 
+visibility: hidden; 
+}
+
+.jumbotron {
+	color: #fff;
+	padding: 10px;
+	margin: 0px;
+	background: url("../../../images/jumbotron.jpg") center center;
+	background-size: 100% 100%;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+.row {
+	padding: 0px 5px 0px 5px;
+	background-color: #CCCCCC;
+}
+.row:first-of-type {
+	padding: 10px 5px 0px 5px;
+}
+.onlyrow
+ {
+	padding: 10px 5px 0px 5px;
+}
+[class*="col-"] {
+	padding: 0 5px;
+}
+.footer {
+	background-color: #dddddd;
+}
+.panel {
+	border: 0px;
+	margin-bottom: 10px;
+}
+.panel-body, .panel-heading {
+	padding: 10px;
+}
+.chart-panel-body {
+	min-height:350px !important;
+}
+
+.panel-footer {
+	padding: 2px 10px;
+	background: white;
+}
+
+.panel-heading > h4 {
+	margin-bottom: 0px;
+}
+.panel-default > .panel-heading {
+	background: white;
+}
+/* To enable fullscreen toggle of Panels */
+.panel-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: right;
+  z-index: 0;
+  background-color: white;
+}
+.panel-actions a {
+	color: #333;
+}
+/* End of Panels */
+table {
+	margin-bottom: 10px;
+}
+table:last-child {
+	margin-bottom: 0px;
+}
+.table {
+	margin-bottom: 10px;
+}
+table:last-child, .table:last-child, p:last-child, ul:last-child {
+	margin-bottom: 0px;
+}
+.table-condensed > tbody > tr > td, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > thead > tr > th {
+	padding: 2px;
+    vertical-align: top;
+}
+.table.table-borderless td, .table.table-borderless th {
+    border: 0 !important;
+}
+
+.fullheight {
+	height: calc(100vh - 90px);
+}
+.fulliframe {
+	height: calc(100vh - 95px);
+	width: 100%;
+	border: none;
+	padding: 0px;
+	margin: 0px;
+}
+.fullmapframe {
+	height: calc(100vh - 55px);
+	width: 100%;
+	border: none;
+	padding: 0px;
+	margin: 0px;
+}
+.chartfullheight {
+	width: 100%;
+	height: calc(100vh - 190px);
+}
+.chartsmall {
+	width: 100%;
+	height: 300px;
+}
+.chartmedium {
+	width: 100%;
+	height: 800px;
+}
+.mapfullheight {
+	width: 100%;
+	height: calc(100vh - 140px);
+}
+.mapsmall {
+	width: 100%;
+	height: 400px;
+}
+.img-popup {
+	width: 350px;
+	height: auto;
+}
+.img-max-height {
+    max-height: 60vh; /* 80% of the viewport height */
+    display: block;
+    margin: auto;
+    width: auto;
+    height: auto;
+}
+.extra-small {
+	font-size: 75%;
+}
+.modal-dialog {
+	margin-top: 61px;
+}
+.modal-fullscreen {
+	margin-top: 25px;
+}
+.modal-title {
+	font-weight: bold;
+}
+.modal-header h4 {
+	margin-bottom: 0px;
+}
+.modal-backdrop {
+z-index: 100000 !important;
+}
+
+.modal {
+z-index: 100001 !important;
+}
+.day
+{
+	background-color: gold;
+	color: #000000;
+}
+.night
+{
+	background-color: #808080;
+	color: #FFFF99;
+}
+
+/* for loader */
+.loading {
+	border: 5px solid #333;
+	border-radius: 30px;
+	height: 30px;
+	left: 50%;
+	margin: -15px 0 0 -15px;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	width: 30px;
+	animation: pulsate 2s ease-out;
+	animation-iteration-count: infinite;
+}
+@keyframes pulsate {
+    0% {
+      transform: scale(.1);
+      opacity: 0.0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+}
+
+

@@ -1,0 +1,495 @@
+﻿<!--
+/* Copyright (C) Piers Allison - All Rights Reserved.
+ * This code has been made available for use by the not for profit flood forums.
+ *
+ * This code makes use of techniques and code snippets that are widely
+ * available in the public and open source domain.
+ *
+ * This code makes use of open data provided by the Environment Agency,
+ *
+ * You may use, distribute and modify this code for not-for-profit
+ * purposes only.
+ */
+-->
+<!DOCTYPE html>
+<html lang="en-gb">
+
+<head>
+<title>XYZ Flood Forum Dashboard</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/floodwarning.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/spinner.css" rel="stylesheet">
+<!-- Include the configuration script -->
+<script src="js/configuration.js"></script>
+<script src="js/dashboard.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-target="#myNavbar" data-toggle="collapse" style="float: left; margin-left: 5px; margin-right: 0px" type="button">
+			<span class="icon-bar"></span><span class="icon-bar"></span>
+			<span class="icon-bar"></span></button>
+			<a class="navbar-brand" href="/"><span id="flood_forum_longname">
+			</span></a></div>
+		<div id="myNavbar" class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+<!-- Change the nav links for your website -->
+				<li><a href="/dashboard/">Dashboard</a></li> 
+				<li><a href="/map/gb/">Map</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6 col-lg-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4><strong>Flood Warnings &amp; Alerts</strong>&nbsp;<small id="currentDateTime"></small><span class="pull-right">
+					<a data-toggle="modal" href="#flood_warning_modal">
+					<i class="glyphicon glyphicon-info-sign text-primary" title="More Info">
+					</i></a></span></h4>
+				</div>
+				<div class="chart-panel-body panel-body">
+					<p>Flood warnings and alerts for the
+					<span id="flood_forum_shortname"></span>Catchments. Click the 
+					warning/alert for more information.</p>
+					<div>
+						<div id="warning-container" class="notifications-banner">
+						</div>
+						<div id="sev1modal" class="modal" role="dialog">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button class="close" data-dismiss="modal" type="button">
+										×</button>
+										<h4 class="modal-title">Severe Flood Warnings</h4>
+									</div>
+									<div class="modal-body">
+										<ul>
+										</ul>
+									</div>
+									<div class="modal-footer">
+										<button class="btn btn-default" data-dismiss="modal" type="button">
+										Close</button></div>
+								</div>
+							</div>
+						</div>
+						<div id="sev2modal" class="modal" role="dialog">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button class="close" data-dismiss="modal" type="button">
+										×</button>
+										<h4 class="modal-title">Flood Warnings</h4>
+									</div>
+									<div class="modal-body">
+										<ul>
+										</ul>
+									</div>
+									<div class="modal-footer">
+										<button class="btn btn-default" data-dismiss="modal" type="button">
+										Close</button></div>
+								</div>
+							</div>
+						</div>
+						<div id="sev3modal" class="modal" role="dialog">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button class="close" data-dismiss="modal" type="button">
+										×</button>
+										<h4 class="modal-title">Flood Alerts</h4>
+									</div>
+									<div class="modal-body">
+										<ul>
+										</ul>
+									</div>
+									<div class="modal-footer">
+										<button class="btn btn-default" data-dismiss="modal" type="button">
+										Close</button></div>
+								</div>
+							</div>
+						</div>
+						<div id="sev4modal" class="modal" role="dialog">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button class="close" data-dismiss="modal" type="button">
+										×</button>
+										<h4 class="modal-title">Warnings Ended</h4>
+									</div>
+									<div class="modal-body">
+										<ul>
+										</ul>
+									</div>
+									<div class="modal-footer">
+										<button class="btn btn-default" data-dismiss="modal" type="button">
+										Close</button></div>
+								</div>
+							</div>
+						</div>
+						<div id="sev5modal" class="modal" role="dialog">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button class="close" data-dismiss="modal" type="button">
+										×</button>
+										<h4 class="modal-title">All Clear</h4>
+									</div>
+									<div class="modal-body">
+										<ul>
+										</ul>
+									</div>
+									<div class="modal-footer">
+										<button class="btn btn-default" data-dismiss="modal" type="button">
+										Close</button></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<small>Data from the
+					<a href="https://flood-warning-information.service.gov.uk/">
+					Flood Information Service</a></small></div>
+			</div>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4><strong>Gauge summary</strong></h4>
+				</div>
+				<div class="chart-panel-body panel-body">
+					<p><strong style="color: #ff9900">Orange</strong> = EA trigger 
+					Flood Alert, <strong style="color: #dc3912">Red</strong> = Flood 
+					Warning.</p>
+					<div id="gauge_summary_spinner" class="spinner" style="display: none;">
+						<span class="glyphicon glyphicon-refresh"></span></div>
+					<div class="notifications-banner">
+						<div class="col-xs-6 col-sm-4 text-center">
+							<div id="gauge1" class="gaugegrid">
+							</div></div>
+						<div class="col-xs-6 col-sm-4 text-center">
+							<div id="gauge2" class="gaugegrid">
+							</div>
+							</div>
+						<div class="col-xs-6 col-sm-4 text-center">
+							<div id="gauge3" class="gaugegrid">
+							</div>
+							</div>
+						<div class="col-xs-6 col-sm-4 text-center">
+							<div id="gauge4" class="gaugegrid">
+							</div>
+							</div>
+						<div class="col-xs-6 col-sm-4 text-center">
+							<div id="gauge5" class="gaugegrid">
+							</div>
+							</div>
+						<div class="col-xs-6 col-sm-4 text-center">
+							<div id="gauge6" class="gaugegrid">
+							</div>
+							</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<small>River gauges (cm) and groundwater (m)</small></div>
+			</div>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4><strong>River Levels</strong>&nbsp;<small>5 days</small><span class="pull-right">
+					<a id="panel-fullscreen_fiveday_river_levels" class="toggle-fullscreen" href="#" role="button" title="Toggle fullscreen">
+					<i class="glyphicon glyphicon-resize-full text-danger"></i>
+					</a></span></h4>
+				</div>
+				<div class="chart-panel-body panel-body">
+					<p>Click and drag to zoom. Right click to reset.</p>
+					<div id="fiveday_river_spinner" class="spinner" style="display: none;">
+						<span class="glyphicon glyphicon-refresh"></span></div>
+					<div id="fiveday_river_chart_div" class="chart chartsmall">
+					</div>
+				</div>
+				<div class="panel-footer">
+					<small>Data from
+					<a href="https://check-for-flooding.service.gov.uk/">check-for-flooding.service.gov.uk</a> &amp;
+					<a href="https://environment.data.gov.uk/hydrology/explore">
+					EA hydrology</a></small> </div>
+			</div>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4><strong>River Levels</strong>&nbsp;<small>5 months - midday 
+					only</small><span class="pull-right">
+					<a id="panel-fullscreen_fiveday_river_levels" class="toggle-fullscreen" href="#" role="button" title="Toggle fullscreen">
+					<i class="glyphicon glyphicon-resize-full text-danger"></i>
+					</a></span></h4>
+				</div>
+				<div class="chart-panel-body panel-body">
+					<p>Click and drag to zoom. Right click to reset.</p>
+					<div id="fivemonth_river_spinner" class="spinner" style="display: none;">
+						<span class="glyphicon glyphicon-refresh"></span></div>
+					<div id="fivemonth_river_chart_div" class="chart chartsmall">
+					</div>
+				</div>
+				<div class="panel-footer">
+					<small>Data from
+					<a href="https://environment.data.gov.uk/hydrology/explore">
+					environment.data.gov.uk/hydrology</a></small> </div>
+			</div>
+		</div>
+		<div class="col-md-6 col-lg-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4><strong>Groundwater Levels</strong>&nbsp;<small>3 years</small><span class="pull-right">
+					<a id="panel-fullscreen_groundwater_levels" class="toggle-fullscreen" href="#" role="button" title="Toggle fullscreen">
+					<i class="glyphicon glyphicon-resize-full text-danger"></i>
+					</a></span></h4>
+				</div>
+				<div class="chart-panel-body panel-body">
+					<p>Click and drag to zoom. Right click to reset.</p>
+					<div id="groundwater_spinner" class="spinner" style="display: none;">
+						<span class="glyphicon glyphicon-refresh"></span></div>
+					<div id="groundwater_chart_div" class="chart chartsmall">
+					</div>
+				</div>
+				<div class="panel-footer">
+					<small>Data from
+					<a href="https://environment.data.gov.uk/hydrology/explore">
+					environment.data.gov.uk/hydrology</a></small> </div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="flood_warning_modal" class="modal fade" role="dialog" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button class="close" data-dismiss="modal" type="button">
+				<span class="glyphicon glyphicon-remove"></span></button>
+				<h4><strong>Flood Warning &amp; Alert Information</strong></h4>
+			</div>
+			<div class="modal-body">
+				<p>What is the meaning of 'Flood Warning', 'Flood Alert'?</p>
+				<table class="small table table-striped table-hover table-condensed">
+					<thead>
+						<tr>
+							<th>Icon</th>
+							<th>Type</th>
+							<th>What it means</th>
+							<th>Who should pay attention</th>
+						</tr>
+					</thead>
+					<tr>
+						<td>
+						<img alt="Flood Warning" height="30" src="../../images/icons/flood/severe-flood-warnings-icon.svg"></td>
+						<td>Severe Flood Warning</td>
+						<td>Severe flooding. <strong>Danger to life</strong>.</td>
+						<td>People living in or near flood risk areas, emergency 
+						responders</td>
+					</tr>
+					<tr>
+						<td>
+						<img alt="Flood Warning" height="30" src="../../images/icons/flood/flood-warnings-icon.svg"></td>
+						<td>Flood Warning</td>
+						<td>Flooding of <strong>Properties</strong> is expected.</td>
+						<td>People living in flood risk areas.</td>
+					</tr>
+					<tr>
+						<td>
+						<img alt="Flood Alert" height="30" src="../../images/icons/flood/flood-alerts-icon.svg"></td>
+						<td>Flood Alert</td>
+						<td>Flooding of <strong>fields, minor roads</strong> is 
+						possible.</td>
+						<td>Flood wardens, farmers</td>
+					</tr>
+					<tr>
+						<td>
+						<img alt="Flood Warning" height="30" src="../../images/icons/flood/warnings-ended-icon.svg"></td>
+						<td>Warnings Ended</td>
+						<td>No further flooding is expected.</td>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+				<p><small>This table is a summary of the
+				<a href="https://www.gov.uk/guidance/flood-alerts-and-warnings-what-they-are-and-what-to-do">
+				Environment Agency's guidance</a>.</small></p>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+const raincolour = "#00aeef";    
+
+document.getElementById('fiveday_river_spinner').style.display = 'block';
+document.getElementById('fivemonth_river_spinner').style.display = 'block';
+document.getElementById('groundwater_spinner').style.display = 'block';
+            
+// Load the Google Charts library and line chart package
+google.charts.load('current', {packages: ['corechart', 'gauge', 'bar']});
+google.charts.setOnLoadCallback(loadCharts);
+
+// Declare the stationData variable globally
+let fiveday_river_stationData = [];
+let fivemonth_river_stationData = [];
+let groundwater_stationData = [];
+
+function loadCharts()
+{
+	if (
+	    document.getElementById("fiveday_river_chart_div") &&
+	    typeof init_fiveday_river_Chart === "function" &&
+	    typeof fiveday_river_station_details !== "undefined" &&
+	    Array.isArray(fiveday_river_station_details) &&
+	    fiveday_river_station_details.length > 0
+	) {
+	    init_fiveday_river_Chart();
+	}
+	
+	if (
+	    document.getElementById("fivemonth_river_chart_div") &&
+	    typeof init_fivemonth_river_Chart === "function" &&
+	    typeof fiveday_river_station_details !== "undefined" &&
+	    Array.isArray(fiveday_river_station_details) &&
+	    fiveday_river_station_details.length > 0
+	) {
+	    init_fivemonth_river_Chart();
+	}
+	
+	if (
+	    document.getElementById("groundwater_chart_div") &&
+	    typeof init_groundwater_Chart === "function" &&
+	    typeof groundwater_station_details !== "undefined" &&
+	    Array.isArray(groundwater_station_details) &&
+	    groundwater_station_details.length > 0
+	) {
+        init_groundwater_Chart();
+	}
+	
+        init_gauges()
+}
+
+  
+$(window).resize(function ()
+{
+	fiveday_river_drawChart();
+	fivemonth_river_drawChart();
+	groundwater_drawChart();
+});
+
+$(document).ready(function () {
+	//Toggle fullscreen
+	$(".toggle-fullscreen").click(function (e) {
+		e.preventDefault();
+		
+		var $this = $(this);
+		var $row = $this.closest('.row');
+		var $panel = $this.closest('.panel');
+		var $col = $panel.parent();
+		var $chart = $panel.find('.chart');
+		
+		if ($this.children('i').hasClass('glyphicon-resize-full'))
+		{
+// Hide other rows and columns
+			$row.siblings().hide();
+			$col.siblings().hide();
+			$panel.find('.panel-footer').hide();
+			$panel.find('.date_selector').show();
+
+			$this.children('i').removeClass('glyphicon-resize-full');
+			$this.children('i').addClass('glyphicon-resize-small');
+		}
+		else if ($this.children('i').hasClass('glyphicon-resize-small'))
+		{
+			$row.siblings().show();
+			$col.siblings().show();
+			$panel.find('.panel-footer').show();
+			$panel.find('.date_selector').hide();
+
+			$this.children('i').removeClass('glyphicon-resize-small');
+			$this.children('i').addClass('glyphicon-resize-full');
+			$('.modal').hide(); // closes all active pop ups.
+			$('.modal-backdrop').remove(); // removes the grey overlay.		
+		}
+
+//		$panel.toggleClass('panel-fullscreen');
+//		$panel.toggleClass('panel-default');
+		$col.toggleClass('col-md-12');		
+		$col.toggleClass('col-md-6');
+		$col.toggleClass('col-lg-12');		
+		$col.toggleClass('col-lg-4');
+		$row.toggleClass('onlyrow');		
+		$chart.toggleClass('chartfullheight');
+		$chart.toggleClass('chartsmall');
+		fiveday_river_drawChart();
+		fivemonth_river_drawChart();
+		groundwater_drawChart();
+		
+	});
+});
+
+</script>
+<script>
+function formatDateTime(date) {
+    const timeFormatter = new Intl.DateTimeFormat('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+    
+    const dateFormatter = new Intl.DateTimeFormat('en-GB', {
+        day: '2-digit',
+        month: 'short'
+    });
+    
+    const timezoneFormatter = new Intl.DateTimeFormat('en-GB', {
+        timeZoneName: 'short'
+    });
+    
+    const time = timeFormatter.format(date);
+    const formattedDate = dateFormatter.format(date);
+    const timezone = timezoneFormatter.format(date).split(' ')[1];  // Gets "BST" or "GMT"
+
+    return `${time}, ${formattedDate} (${timezone})`;
+}
+
+// Get the current date and time
+const nowDate = new Date();
+const currentDateTime = formatDateTime(nowDate);
+
+// Insert the formatted date and time into the HTML
+document.getElementById("currentDateTime").textContent = currentDateTime;
+
+// Function to update all spans with the specified ID
+function updateHTMLwithparameters() {
+    const elementsToUpdate = [
+        { selector: '#flood_forum_shortname', text: flood_forum_shortname },
+        { selector: '#flood_forum_longname', text: flood_forum_longname }
+    ];
+
+    elementsToUpdate.forEach(item => {
+        const spans = document.querySelectorAll(item.selector);
+        spans.forEach(span => {
+            span.textContent = item.text; // or use innerHTML if needed
+        });
+    });
+
+    document.title = flood_forum_longname; // Set the document title
+    document.documentElement.style.setProperty('--color-primary-0', navbar_colour);
+}
+document.addEventListener('DOMContentLoaded', updateHTMLwithparameters);
+</script>
+
+</body>
+
+</html>

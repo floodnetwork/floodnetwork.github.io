@@ -1,0 +1,77 @@
+﻿.notifications-banner {
+}
+.notifications-banner .heading-small, .notifications-banner .heading-medium, .notifications-banner .heading-large, .notifications-banner .heading-xlarge {
+	margin: 0;
+}
+.notifications-banner .grid-row {
+	margin-top: 15px;
+}
+.notifications-banner .at-risk {
+	font-size: 27px;
+	margin-top: 11px;
+}
+.notifications-banner .severity {
+	border-left-style: solid;
+	border-left-width: 10px;
+	margin-bottom: 10px;
+	display: block;
+	color: #0b0c0c;
+	text-decoration: none;
+	height: 130px;
+}
+.notifications-banner .gaugegrid {
+	display: inline-block;
+	margin-bottom: 0px;
+	height: 135px;
+}
+.notifications-banner .severity.severity-1 {
+	border-left-color: #e3000f;
+	border-left-style: dashed;
+}
+.notifications-banner .severity.severity-2 {
+	border-left-color: #e3000f;
+}
+.notifications-banner .severity.severity-3 {
+	border-left-color: #f18700;
+}
+.notifications-banner .severity.severity-4 {
+	border-left-color: #686868;
+}
+.notifications-banner .severity.severity-5 {
+	border-left-color: #519911;
+}
+.notifications-banner .severity .heading-xlarge {
+	font-size: 40px;
+	padding: 5px 0 0 5px;
+	vertical-align: top;
+}
+.notifications-banner .severity .heading-xlarge.flag {
+	color: #fff;
+	padding-top: 5px;
+	background-color: #e3000f;
+}
+.notifications-banner .severity .details {
+	padding-left: 5px;
+}
+.notifications-banner .severity img {
+	height: 40px;
+	vertical-align: top;
+}
+.notifications-banner .severity i {
+	height: 40px;
+	vertical-align: top;
+}
+.notifications-banner .severity .title {
+	margin-top: 0px;
+	font-weight: bold;
+}
+.notifications-banner .severity .tagline, .notifications-banner .severity .description {
+	text-transform: uppercase;
+	font-size: 75%;
+}
+.modal-backdrop {
+	z-index: 100000 !important;
+}
+.modal {
+	z-index: 100001 !important;
+}
